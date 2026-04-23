@@ -103,34 +103,34 @@ export default function Hero() {
   return (
     <section
       id="hero"
-      className="relative min-h-screen flex items-center justify-center overflow-hidden grid-bg"
+      className="relative min-h-screen overflow-hidden grid-bg"
       onMouseMove={handleMouseMove}
     >
       {/* Particles */}
-      <canvas ref={canvasRef} id="particles-canvas" />
+      {/* <canvas ref={canvasRef} id="particles-canvas" /> */}
 
       {/* Gradient blobs */}
       <motion.div
-        className="blob w-[600px] h-[600px] bg-accent"
+        className="blob w-full max-w-[600px] h-[600px] bg-accent"
         animate={{ x: [0, 30, 0], y: [0, -20, 0], scale: [1, 1.05, 1] }}
         transition={{ duration: 12, repeat: Infinity, ease: 'easeInOut' }}
         style={{ top: '-10%', left: '-10%' }}
       />
       <motion.div
-        className="blob w-[400px] h-[400px] bg-accent-2"
+        className="blob w-full max-w-[400px] h-[400px] bg-accent-2"
         animate={{ x: [0, -20, 0], y: [0, 25, 0], scale: [1, 1.1, 1] }}
         transition={{ duration: 10, repeat: Infinity, ease: 'easeInOut', delay: 2 }}
         style={{ bottom: '0%', right: '-5%' }}
       />
       <motion.div
-        className="blob w-[300px] h-[300px]"
+        className="blob w-full max-w-[300px] h-[300px]"
         style={{ background: '#00B4FF', top: '50%', left: '60%' }}
         animate={{ x: [0, 15, 0], y: [0, -30, 0] }}
         transition={{ duration: 8, repeat: Infinity, ease: 'easeInOut', delay: 1 }}
       />
 
       {/* Content */}
-      <div className="relative z-10 max-w-7xl mx-auto px-6 pt-28 pb-16">
+      <div className="relative z-10 max-w-7xl mx-auto px-6 pt-28 pb-16 ">
         <div className="flex flex-col items-start">
           {/* Label */}
           <motion.div
@@ -183,7 +183,7 @@ export default function Hero() {
               className="font-display font-black leading-none"
               style={{
                 fontFamily: 'Syne, sans-serif',
-                fontSize: 'clamp(3.5rem, 10vw, 9rem)',
+                fontSize: 'clamp(2.5rem, 7vw, 9rem)',
                 letterSpacing: '-0.03em',
                 WebkitTextStroke: '1px rgba(240,237,232,0.3)',
                 color: 'transparent',

@@ -16,9 +16,13 @@ export default function Testimonials() {
   const [active, setActive] = useState(0);
 
   useEffect(() => {
-    const timer = setInterval(() => setActive((a) => (a + 1) % testimonials.length), 5000);
+    const timer =  setInterval(() => {
+      setActive((a) => {
+        return ((a + 1) % testimonials.length);
+      });
+    }, 5000);  
     return () => clearInterval(timer);
-  }, []);
+  }, [testimonials.length]);
 
   return (
     <section className="section-pad relative overflow-hidden" ref={ref}>
@@ -26,10 +30,11 @@ export default function Testimonials() {
       <div className="max-w-7xl mx-auto px-6">
         <div className="flex items-center gap-3 mb-4">
           <div className="w-1.5 h-1.5 rounded-full bg-accent" />
-          <span className="font-mono text-xs tracking-[0.3em] uppercase text-accent" style={{ fontFamily: 'Space Mono, monospace' }}>Client Love</span>
+          <span className="font-mono text-xs tracking-[0.3em] uppercase text-accent">Client Love</span>
         </div>
         <div className="overflow-hidden mb-16">
-          <motion.h2 initial={{ y: 80 }} animate={inView ? { y: 0 } : {}} transition={{ duration: 0.9, ease: [0.23, 1, 0.32, 1] }} className="font-display font-black leading-tight" style={{ fontFamily: 'Syne, sans-serif', fontSize: 'clamp(2.5rem, 5vw, 4rem)', letterSpacing: '-0.03em' }}>
+          <motion.h2 initial={{ y: 80 }} animate={inView ? { y: 0 } : {}} transition={{ duration: 0.9, ease: [0.23, 1, 0.32, 1] }} 
+          className="font-display font-black leading-tight text-[clamp(2.5rem,5vw,4rem)]">
             What clients<span className="gradient-text"> say.</span>
           </motion.h2>
         </div>
@@ -49,7 +54,7 @@ export default function Testimonials() {
                 <div className="flex items-center gap-4">
                   <div className="w-12 h-12 rounded-full bg-accent/10 border border-accent/30 flex items-center justify-center font-display font-bold text-sm text-accent" style={{ fontFamily: 'Syne, sans-serif' }}>{testimonials[active].avatar}</div>
                   <div>
-                    <div className="font-display font-bold text-text" style={{ fontFamily: 'Syne, sans-serif' }}>{testimonials[active].name}</div>
+                    <div className="font-display font-bold text-text">{testimonials[active].name}</div>
                     <div className="text-xs text-muted">{testimonials[active].role}</div>
                   </div>
                   <div className="ml-auto flex gap-1">
@@ -63,7 +68,10 @@ export default function Testimonials() {
           </div>
           <div className="flex justify-center gap-3 mt-8">
             {testimonials.map((_, i) => (
-              <button key={i} onClick={() => setActive(i)} className={`transition-all duration-300 rounded-full ${i === active ? 'w-8 h-2 bg-accent' : 'w-2 h-2 bg-white/20 hover:bg-white/40'}`} />
+              <button 
+              key={i} 
+              onClick={() => setActive(i)}
+              className={`transition-all duration-300 rounded-full ${i === active ? 'w-8 h-2 bg-accent' : 'w-2 h-2 bg-white/20 hover:bg-white/40'}`} />
             ))}
           </div>
         </div>

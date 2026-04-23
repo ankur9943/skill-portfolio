@@ -44,7 +44,7 @@ export default function Home() {
         <Projects />
         <Services />
         <Stats />
-        <Testimonials />
+        {/* <Testimonials /> */}
         <Contact />
       </main>
       <Footer />
